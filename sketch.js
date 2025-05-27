@@ -32,7 +32,7 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(600, 400, SVG);
+  createCanvas(400, 400, SVG);
   addDownloadButton();
   imageMode(CENTER);
 }
