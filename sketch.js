@@ -326,9 +326,11 @@ function draw() {
   clear();
   background("black");
 
+  
   angle1 += speed1;
   angle2 += speed2;
 
+//FONT-X-Y
   let lettereX = [
     (width * 2) / 6, //0
     (width * 4) / 6, //1
@@ -344,7 +346,7 @@ function draw() {
   fill("Orange"); 
   textAlign(CENTER, CENTER);
 
-  // 显示 GIOIA
+  // FONT
   text("G", lettereX[0], lettereY[0]);
   text("I", lettereX[1], lettereY[0]);
   text("O", lettereX[0], lettereY[1]);
@@ -356,12 +358,13 @@ function draw() {
   }
 }
 
+//GRAFIC-X-Y
 function disegnaGrafica(grafica) {
   let x = grafica.posizione.colonna * 100;
   let y = grafica.posizione.riga * 100;
 
 
-  //图形
+  //ALL GRAFIC-SOTTO-CENTRO-SOPRA
   push();
   translate(x, y);
   rotate(angle1 * grafica.sotto.angolo);
