@@ -345,21 +345,24 @@ function draw() {
     (height * 6) / 8, // 2
   ];
 
- // 字体绘制（叠加图形上方）
+// 字体绘制（正片叠底）
+blendMode(MULTIPLY); // 切换到正片叠底模式
+
 textFont(font);
 textSize(200);
-
 let fontColor = color("#f4bc1f");
-fontColor.setAlpha(180); // 设置透明度
+fontColor.setAlpha(190); // 设置透明度
 fill(fontColor);
-
 textAlign(CENTER, CENTER);
 
 text("G", lettereX[0], lettereY[0]);
-text("I", lettereX[1], lettereY[0]);
+text("I", lettereX[1]-6, lettereY[0]);
 text("O", lettereX[0], lettereY[1]);
 text("I", lettereX[0], lettereY[2]);
-text("A", lettereX[1] + 20, lettereY[2]);
+text("A", lettereX[1] + 8, lettereY[2]);
+
+blendMode(BLEND); // 恢复正常混合模式
+
 
 }
 
