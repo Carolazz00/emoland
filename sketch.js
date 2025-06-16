@@ -324,39 +324,45 @@ function setup() {
 
 function draw() {
   clear();
-  background("black");
+  background("white");
 
-  
   angle1 += speed1;
   angle2 += speed2;
 
-//FONT-X-Y
-  let lettereX = [
-    (width * 2) / 6, //0
-    (width * 4) / 6, //1
-  ];
-  let lettereY = [
-    (height * 2) / 8, //0
-    (height * 4) / 8, //1
-    (height * 6) / 8, //2
-  ];
-
-  textFont(font);
-  textSize(200);
-  fill("Orange"); 
-  textAlign(CENTER, CENTER);
-
-  // FONT
-  text("G", lettereX[0], lettereY[0]);
-  text("I", lettereX[1], lettereY[0]);
-  text("O", lettereX[0], lettereY[1]);
-  text("I", lettereX[0], lettereY[2]);
-  text("A", lettereX[1] + 20, lettereY[2]);
-
+  // 先绘制图形（底层）
   for (let grafica of grafiche) {
     disegnaGrafica(grafica);
   }
+
+  // 然后绘制文字（上层 + 透明）
+  let lettereX = [
+    (width * 2) / 6, // 0
+    (width * 4) / 6, // 1
+  ];
+  let lettereY = [
+    (height * 2) / 8, // 0
+    (height * 4) / 8, // 1
+    (height * 6) / 8, // 2
+  ];
+
+ // 字体绘制（叠加图形上方）
+textFont(font);
+textSize(200);
+
+let fontColor = color("#f4bc1f");
+fontColor.setAlpha(180); // 设置透明度
+fill(fontColor);
+
+textAlign(CENTER, CENTER);
+
+text("G", lettereX[0], lettereY[0]);
+text("I", lettereX[1], lettereY[0]);
+text("O", lettereX[0], lettereY[1]);
+text("I", lettereX[0], lettereY[2]);
+text("A", lettereX[1] + 20, lettereY[2]);
+
 }
+
 
 //GRAFIC-X-Y
 function disegnaGrafica(grafica) {
